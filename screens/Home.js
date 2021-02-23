@@ -1,21 +1,3 @@
-// import React, { Component } from 'react';
-// import { Text, View } from 'react-native';
-
-// export default class HomeScreen extends Component {
-//     render() {
-//         return (
-//             <View
-//                 style={{
-//                     flex: 1,
-//                     justifyContent: "center",
-//                     alignItems: "center"
-//                 }}>
-//                 <Text>Home Screen!</Text>
-//             </View>
-//         )
-//     }
-// }
-
 import React, { Component } from "react";
 import {
     View,
@@ -30,37 +12,38 @@ import {
 } from "react-native";
 
 export default class HomeScreen extends Component {
-    
+
 
     render() {
         return (
             <View style={styles.container}>
-                 <SafeAreaView style={styles.droidSafeArea} />
+                <SafeAreaView style={styles.droidSafeArea} />
                 <ImageBackground source={require('../assets/stars.gif')} style={styles.backgroundImage}>
                     <View style={styles.titleBar}>
-                        <Image source={require("../assets/main-icon.png")} style={{width:100, height:100}}></Image>
-                        <Text style={styles.titleText}>Stellar App</Text>
+                        <Image source={require("../assets/main-icon.png")} style={{ width: 150, height: 150 }}></Image>
+                        <Text style={styles.titleText}>Stellar</Text>
+                        <Text style={styles.titleText}>App</Text>
                     </View>
-                  
+
                     <TouchableOpacity style={styles.routeCard} onPress={() =>
                         this.props.navigation.navigate("SpaceCrafts")
                     }>
                         <Text style={styles.routeText}>Space Crafts</Text>
-                        <Image source={require("../assets/asset-06.png")} style={{ width: 80, height: 80 }}></Image>
+                        <Image source={require("../assets/space_crafts.png")} style={styles.routeImage}></Image>
                     </TouchableOpacity>
-                  
+
                     <TouchableOpacity style={styles.routeCard} onPress={() =>
                         this.props.navigation.navigate("StarMap")
                     }>
                         <Text style={styles.routeText}>Star Map</Text>
-                        <Image source={require("../assets/star-map.png")} style={{ width: 80, height: 80 }}></Image>
+                        <Image source={require("../assets/star_map.png")} style={styles.routeImage}></Image>
                     </TouchableOpacity>
-                  
+
                     <TouchableOpacity style={styles.routeCard} onPress={() =>
                         this.props.navigation.navigate("DailyPic")
                     }>
                         <Text style={styles.routeText}>Daily Pictures</Text>
-                        <Image source={require("../assets/photo.png")} style={{ width: 80, height: 80 }}></Image>
+                        <Image source={require("../assets/daily_pictures.png")} style={styles.routeImage}></Image>
                     </TouchableOpacity>
                 </ImageBackground>
             </View>
@@ -80,30 +63,38 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
     },
     routeCard: {
-        flex: 0.2,
+        flex: 0.12,
         justifyContent: "center",
         alignItems: "center",
-        marginLeft: 10,
-        marginRight: 10,
-        marginTop: 5,
-        borderRadius: 10,
-        backgroundColor: 'rgba(52, 52, 52, 0.5)'
-        // backgroundColor:'white'
+        margin: 10,
+        marginLeft: 30,
+        marginRight: 30,
+        borderRadius: 100,
+        backgroundColor: "white"
     },
     titleBar: {
-        flex: 0.25,
+        flex: 0.5,
         justifyContent: "center",
         alignItems: "center"
     },
     titleText: {
-        fontSize: 30,
+        fontSize: 40,
         fontWeight: "bold",
         color: "white"
     },
     routeText: {
         fontSize: 25,
         fontWeight: "bold",
-        // color: "white"
-        color:'#D11583'
+        color: '#D11583',
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    routeImage: {
+        position: "absolute",
+        top: -20,
+        right: -15,
+        height: 80,
+        width: 80,
+        resizeMode: "contain"
     }
 });
